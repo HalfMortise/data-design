@@ -1,0 +1,55 @@
+h1 {
+	color: darkturquoise;
+	text-align: center;
+}
+
+h2 {
+	color: darkturquoise;
+	text-align: left;
+}
+
+h4 {
+	color: black;
+	text-align: center;
+}
+
+.html-list{
+	list-style: square;
+	align-content: center;
+	width: 50%;
+}
+
+.center {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+
+.wide-container {
+	width: 70%;
+	margin: 0 auto;
+	align-items: center;
+}
+
+.container {
+	width: 50%;
+	margin: 0 auto;
+	align-items: center;
+}
+
+.fixed-footer {
+	bottom: 0;
+	text-align:center;
+	width: 100%;
+	position: fixed;
+	background: rgba(0, 37, 255, 0);
+	padding: 10px 0;
+	color: rgba(2, 2, 2, 0.99);
+}
+
+img {
+	box-shadow: 8px 8px 10px #aaa;
+	align-items: center;
+	width: 200px;
+	height: 325px;
+}
