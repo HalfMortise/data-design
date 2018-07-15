@@ -1,13 +1,6 @@
--- noinspection SqlNoDataSourceInspectionForFile
+ALTER DATABASE JOY CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
--- The statement below sets the collation of the database to utf8
-ALTER DATABASE ECORSI CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
--- this is a comment in SQL (yes, the space is needed!)
--- the following statements will drop the tables and re-add them
--- this is akin to reformatting and reinstalling Windows (OS X never needs a reinstall...) ;)
--- never ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever
--- do this on live data!!!!
+-- never do this on live data!!!!
 DROP TABLE if EXISTS contentprofile
 DROP TABLE IF EXISTS content;
 DROP TABLE IF EXISTS profile;
@@ -48,7 +41,7 @@ CREATE TABLE content (
 	PRIMARY KEY(contentId)
 );
 
--- create the like entity (a weak entity from an m-to-n for profile --> tweet)
+-- create the contentprofile entity (the weak entity)
 CREATE TABLE contentprofile (
 	-- these are still foreign keys
 	contentProfileProfileId BINARY(16) NOT NULL,
@@ -60,5 +53,4 @@ CREATE TABLE contentprofile (
 	-- create the foreign key relations
 	FOREIGN KEY(contentProfileProfileId) REFERENCES profile(profileId),
 	FOREIGN KEY(contentProfileContentId) REFERENCES profile(profileId),
-	-- finally, create a composite foreign key with the two foreign keys
 );
