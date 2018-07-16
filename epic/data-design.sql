@@ -1,4 +1,4 @@
-ALTER DATABASE JOY CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER DATABASE CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 -- never do this on live data!!!!
 DROP TABLE if EXISTS contentprofile
@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS profile;
 DROP TABLE IF EXISTS account;
 
 -- the CREATE TABLE function is a function that takes tons of arguments to layout the table's schema
-CREATE TABLE profile (
+CREATE TABLE account (
 	-- this creates the attribute for the primary key
 	-- not null means the attribute is required!
 	accountId BINARY(16) NOT NULL,
@@ -52,5 +52,5 @@ CREATE TABLE contentprofile (
 	INDEX(contentProfileContentId),
 	-- create the foreign key relations
 	FOREIGN KEY(contentProfileProfileId) REFERENCES profile(profileId),
-	FOREIGN KEY(contentProfileContentId) REFERENCES profile(profileId),
+	FOREIGN KEY(contentProfileContentId) REFERENCES profile(profileId)
 );
