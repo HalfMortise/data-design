@@ -1,11 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Joy
- * Date: 7/18/2018
- * Time: 9:41 AM
- */
+/***/
+//this defines the class's state and behavior
+class Contentprofile {
+	private $contentProfileProfileId;
+	private $contentProfileContentId;
+	private $contentProfileTrackPosition;
 
-class contentprofile {
+//this is the accessor method to allow to "get"
+//@return UUID values
+	public function getContentProfileProfileId(): Uuid {
+		return ($this->contentProfileProfileId);
+	}
 
+	public function getContentProfileContentId(): Uuid {
+		return ($this->contentProfileContentId);
+	}
+
+	public function getContentProfileTrackPosition(): Uuid {
+		return ($this->contentProfileTrackPosition);
+	}
 }
