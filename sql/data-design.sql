@@ -1,7 +1,7 @@
-ALTER DATABASE CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER DATABASE ecorsi CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 -- never do this on live data!!!!
-DROP TABLE if EXISTS contentprofile
+DROP TABLE if EXISTS contentprofile;
 DROP TABLE IF EXISTS content;
 DROP TABLE IF EXISTS profile;
 DROP TABLE IF EXISTS account;

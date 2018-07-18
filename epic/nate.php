@@ -10,32 +10,31 @@
 		<img class="img" src="./images/nate.jpg" />
 		</h1>
 		<div>
-			<ul>
-				<li class="wide-container">Gender: Male</li>
-				<li class="wide-container">Age: 20</li>
-				<li class="wide-container">Marital Status: Single</li>
-				<li class="wide-container">Occupation: Student/Part-time Intern</li>
-				<li class="wide-container">Annual Income: 15-25k</li>
-			</ul>
-		</div>
+			<ul class="center">Gender: Male</ul>
+			<ul class="center">Age: 20</ul>
+			<ul class="center">Marital Status: Single</ul>
+			<ul class="center">Occupation: Student/Part-time Intern</ul>
+			<ul class="center">Annual Income: $15-25k</ul>
+		</div><br/>
+			<h3 class="center">User Story</h3>
+			<h4 class="center">Nate wants to be able to resume episodes of his favorite TV shows where he left off when he had previously been viewing</h4>
 			<h4>Attitude:</h4>
 			<ul>
-				<li class="wide-container">Nate is used to the ease of accessing apps with minimal clicks, and expects his Netflix experience to be no different.  In addition to ease of access, he doesn’t want his feed to be cluttered with irrelevant content or recommendations for TV shows and movies that he has no interest in.  He would like some control over managing that content.</li>
+				<li class="wide-container">Nate is used to the ease of accessing apps with minimal clicks, and expects his Netflix experience to be no different.  In addition to ease of access, he doesn’t want to be bothered with having to search for what he was viewing last, and would like to be able to quickly pick up where he left off with whatever content was last accessed.</li>
 			</ul>
 				<h4>Likes:</h4>
 			<ul>
 				<li class="wide-container">Apps with ease of access and ease of use</li>
-				<li class="wide-container">Apps with little clutter (irrelevant content/information)</li>
 				<li class="wide-container">Apps that allow him to tailor settings and content to his own preferences</li>
 			</ul>
 		<h4>Technological Needs:</h4>
 			<ul>
 				<li class="wide-container">A site that will allow him to separate personalized content between him and his roommates</li>
-				<li class="wide-container">A site that will allow him to create a list of content that reflects what shows/movies he is currently interested in</li>
+				<li class="wide-container">A site that will allow him to resume viewing content without having to start over</li>
 			</ul>
 		<h4>Frustrations:</h4>
 			<ul>
-				<li class="wide-container">He does not like irrelevant content on his page</li>
+				<li class="wide-container">He does not like having to remember and find the place in the video where he left off last time he was viewing the content</li>
 				<li class="wide-container">He does not like having to constantly perform a search to find a show/movie that he is currently interested in</li>
 			</ul>
 		<h4>Comfort level: high</h4>
