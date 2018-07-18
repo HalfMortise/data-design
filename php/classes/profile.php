@@ -2,7 +2,16 @@
 /***/
 
 class Profile {
+/**
+ * id for this profile; this is the primary key
+ * @var Uuid $profileId
+**/
 	private $profileId;
+
+/**
+ * id for this profile's Name
+ * @var string $profileName
+**/
 	private $profileName;
 //The (mutator) function generates a new profile id for a user
 /**
@@ -20,14 +29,18 @@ class Profile {
 		//convert and store the profile id
 		$this->profileId = $uuid;
 	}
-//accessor method for returning the Netflix profile id
-//@return Uuid value of Netflix profile id
+/**
+ * accessor method for returning the Netflix profile id
+ * @return Uuid value of Netflix profile id
+**/
    public function getProfileId() : Uuid {
-	   return($this->profileId);
+      return($this->profileId);
    }
-//mutator method for generating a new profile name
-//@param string
-//@throws \RangeException if $profileName exceeds 10 characters
+
+/**mutator method for generating a new profile name
+ * @param string
+ * @throws \RangeException if $profileName exceeds 10 characters
+**/
    public function setProfileName( $newProfileName) : void {
 	   try {
 	      $string = self::validateString($newProfileName);
@@ -38,8 +51,9 @@ class Profile {
 //convert and store the profileName
       $this->profileName = $string;
    }
-//accessor method for "getting" profileName
-//@return string value of profileName
+/**accessor method for "getting" profileName
+ *@return string value of profileName
+**/
    public function getProfileName() : string {
 	   return($this->profileName);
    }
