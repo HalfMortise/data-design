@@ -11,6 +11,7 @@ CREATE TABLE account (
 	-- this creates the attribute for the primary key
 	-- not null means the attribute is required!
 	accountId BINARY(16) NOT NULL,
+	accountProfileId BINARY (16) NOT NULL,
 	accountActivationToken CHAR(32),
 	accountName VARCHAR(32) NOT NULL,
 	accountEmail VARCHAR(128) NOT NULL,
@@ -19,7 +20,6 @@ CREATE TABLE account (
 	-- to make sure duplicate data cannot exist, create a unique index
 	UNIQUE(accountName),
 	UNIQUE(accountEmail),
-	-- this officiates the primary key for the entity
 	PRIMARY KEY(accountId)
 );
 
@@ -27,7 +27,10 @@ CREATE TABLE account (
 CREATE TABLE profile (
 	-- this is for another primary key
 	profileId BINARY(16) NOT NULL,
+	accountProfileId BINARY(16) NOT NULL,
 	profileName VARCHAR(32) NOT NULL,
+	INDEX(accountProfileId),
+	FOREIGN KEY (accountProfileId) REFERENCES account(accountId),
 	PRIMARY KEY(profileId)
 );
 
@@ -52,5 +55,5 @@ CREATE TABLE contentprofile (
 	INDEX(contentProfileContentId),
 	-- create the foreign key relations
 	FOREIGN KEY(contentProfileProfileId) REFERENCES profile(profileId),
-	FOREIGN KEY(contentProfileContentId) REFERENCES profile(profileId)
+	FOREIGN KEY(contentProfileContentId) REFERENCES content(contentId)
 );
