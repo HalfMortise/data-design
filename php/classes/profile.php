@@ -15,7 +15,7 @@ class Profile {
 	private $profileName;
 //The (mutator) function generates a new profile id for a user
 /**
-* @param Uuid/string $newProfileId new value of Netflix account
+* @param Uuid $newProfileId new value of Netflix account
 * @throws \RangeException if $newProfileId is not within range-parameters allowed
 * @throws \TypeError if $newProfileId is not a uuid
 **/
