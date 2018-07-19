@@ -68,15 +68,38 @@ class Profile {
       try {
          $uuid = self::validateUuid($newProfileId);
       } catch(\InvalidArgumentException | \RangeException | \ Exception | \ TypeError $exception) {
+         $exceptionType = get_class($exception);
          throw(new $exceptionType($exception->getMessage(), 0, $exception));
       }
       // convert and store the profile id
       $this->profileId = $uuid;
    }
 
+   /**
+    * accessor method for profile name
+    *
+    * @return String value of profile name
+    **/
+   public function getProfileName() :string {
+      return($this->profileName);
+   }
 
-
-
-
+   /**
+    * mutator method for profile name
+    *
+    * @param String $newProfileName new value of profile name
+    * @throws \RangeException if $newProfileName is not secure
+    * @throws \TypeError: none (leaving comment in for reference)
+    **/
+   public function setProfileName(string $newProfileName) : void {
+      // verify the name content is secure
+      $newProfileName = trim($newProfileName);
+      $newProfileName = filter_var($newProfileName, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+      if(empty($newProfileName) === true) {
+         throw(new \InvalidArgumentException(("This name is not valid"));
+      }
+      //convert and store the profile name
+      $this->profileName = $newProfileName;
+   }
 
 }
