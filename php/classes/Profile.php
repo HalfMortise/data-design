@@ -7,6 +7,8 @@ namespace Edu\Cnm\DataDesign;
  * @version 2.0
  **/
 class Profile {
+   use ValidateDate;
+   use ValidateUuid;
 
    /**
     * id for profile; this is the primary key
@@ -96,10 +98,60 @@ class Profile {
       $newProfileName = trim($newProfileName);
       $newProfileName = filter_var($newProfileName, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
       if(empty($newProfileName) === true) {
-         throw(new \InvalidArgumentException(("This name is not valid"));
+         throw(new \InvalidArgumentException("This name is not valid"));
       }
       //convert and store the profile name
       $this->profileName = $newProfileName;
    }
+
+   /**
+    * inserts this Profile into mySQL
+    *
+    * @param \PDO $pdo PDO connection object
+    * @throws \PDOException when mySQL related errors occur
+    * @throws \TypeError if $pdo is not a PDO connection object
+    **/
+   public function insert(\PDO $pdo) : void {
+      // create query template
+      $query = "INSERT INTO profile(profileId, profileName)";
+      $statement = $pdo->prepare($query);
+      // bind the member variables to the place holders in the template
+      $parameters = ["profileId" => $this->profileId->getBytes(), "profileName => $this->profileName"];
+      $statement->execute($parameters);
+
+      /**
+       * deletes this Profile from mySQL
+       *
+       * @param \PDO $pdo PDO connection object
+       * @throws \PDOException when mySQL related errors occur
+       * @throws \TypeError if $pdo is not a PDO connection object
+       **/
+      public function delete(\PDO $pdo) : void {
+         // create query template
+         $query = "DELETE FROM profile WHERE profileId = :profileId";
+         $statement = $pdo->prepare($query);
+         // bind the member variables to the place holder in the template
+         $parameters = ["profileId" => $this->profileId->getBytes()];
+         $statement->execute($parameters);
+
+      }
+
+
+
+
+
+
+
+   }
+
+
+
+
+
+
+
+
+
+
 
 }
