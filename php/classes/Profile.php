@@ -119,6 +119,8 @@ class Profile {
       $parameters = ["profileId" => $this->profileId->getBytes(), "profileName => $this->profileName"];
       $statement->execute($parameters);
 
+      }
+
       /**
        * deletes this Profile from mySQL
        *
@@ -136,13 +138,23 @@ class Profile {
 
       }
 
+      /**
+       * updates this Profile in mySQL
+       *
+       * @param \PDO $pdo PDO connection object
+       * @throws \PDOException when mySQL related errors occur
+       * @throws \TypeError if $pdo is not a PDO connection object
+       **/
 
+      public function update(\PDO $pdo) : void {
+         // create a query template
+         $query = "UPDATE profile SET profileId = :profileId, profileName = :profileName";
+         $statement = $pdo->prepare($query);
+         $parameters = ["profileId" =>$this->profileId->getBytes(), "profileName" => $this->profileName];
+         $statement->execute($parameters);
 
+      }
 
-
-
-
-   }
 
 
 
