@@ -1,8 +1,18 @@
 <?php
 namespace HalfMortise\DataDesign;
-/***/
-//this defines the class's state and behavior
+require_once(dirname(__DIR__, 2) . "/classes/autoload.php");
+
+/**
+ * Class identified as ContentProfile
+ *
+ * @author HalfMortise
+ * @version 2.0
+ **/
+
 class ContentProfile {
+   use ValidateDate;
+   use ValidateUuid;
+
 /**
  * id for the ContentProfile; this is the primary key
  * @var Uuid $profileId
