@@ -20,3 +20,6 @@ Additional assignment instructions:
 Additional assignment instructions:
   add ValidateUuid.php
   add ValidateDate.php
+
+Use composer to generate composer.json and composer.lock
+
