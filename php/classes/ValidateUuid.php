@@ -1,6 +1,7 @@
 <?php
 namespace HalfMortise\DataDesign;
-require_once(dirname(__DIR__, 2) . "/classes/autoload.php");
+require_once("autoload.php"); //autoload.php file in Classes directory
+require_once(dirname(__DIR__, 2) . "../vendor/autoload.php");
 use Ramsey\Uuid\Uuid;
 /**
  * Trait to validate a uuid
