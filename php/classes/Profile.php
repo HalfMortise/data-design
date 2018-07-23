@@ -155,9 +155,27 @@ class Profile {
 
       }
 
+   /**
+    * Gets the Profile by profile Id
+    *
+    * @param \PDO $pdo PDO connection object
+    * @param Uuid|string $profileId profile id to search for
+    * @return Profile|null found or not found
+    * @throws \PDOException when mySQL related errors occur
+    * @throws \TypeError when a variable is not the correct data type
+    **/
 
+      public static function getProfileByProfileId(\PDO $pdo, $profileId) : ?Profile {
+         //sanitize the profileId before searching
+         try {
+            $profileId = self::validateUuid($profileId);
+         } catch (\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
+            throw (new \PDOException($exception->getMessage(), 0, $exception));
+         }
 
+         //create a query template
 
+      }
 
 
 
