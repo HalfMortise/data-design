@@ -12,6 +12,7 @@ class ValidateUuid {
 
 <?php
 namespace Edu\Cnm\DataDesign;
+//update autoload once instructions given
 require_once(dirname(__DIR__, 2) . "/vendor/autoload.php");
 use Ramsey\Uuid\Uuid;
 /**
