@@ -1,5 +1,6 @@
 <?php
-namespace Edu\Cnm\DataDesign;
+require_once(dirname(__DIR__, 2) . "classes/autoload.php");
+namespace HalfMortise\DataDesign;
 /**
  * Class identified as Profile
  *
