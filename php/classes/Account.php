@@ -1,4 +1,5 @@
 <?php
+namespace HalfMortise\DataDesign;
 /**
  * Class identified as Account
  *
@@ -248,7 +249,7 @@ class Account {
              * @throws \RangeException if $newAccountHash is not unique
              * @throws \TypeError if $newAccountHash is not a uuid
              **/
-            public function setTweetId( $newTweetId) : void {
+            public function setAccountHash( $newAccountHash) : void {
                try {
                   $uuid = self::validateUuid($newAccountHash);
                } catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
