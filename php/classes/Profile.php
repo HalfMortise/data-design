@@ -1,6 +1,10 @@
 <?php
-require_once(dirname(__DIR__, 2) . "classes/autoload.php");
 namespace HalfMortise\DataDesign;
+require_once(dirname(__DIR__, 2) . "/classes/autoload.php");
+
+
+
+
 /**
  * Class identified as Profile
  *
@@ -166,7 +170,7 @@ class Profile {
    public static function getProfileByProfileId(\PDO $pdo, $profileId): \SplFixedArray {
       //sanitize the profileId before searching
       $profileId = trim($profileId);
-      $profileId = filter_var($profileId), FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+      $profileId = filter_var($profileId, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
       if(empty($profileId) === true) {
          throw(new \PDOException("profileId is invalid"));
       }
@@ -231,7 +235,7 @@ class Profile {
       $statement->setFetchMode(\PDO::FETCH_ASSOC);
       while(($row = $statement->fetch()) !== false) {
          try {
-            $profile = new Genre($row["profileId"], $row["profileName"]);
+            $profile = new Profile($row["profileId"], $row["profileName"]);
             $profiles[$profiles->key()] = $profile;
             $profiles->next();
          } catch(\Exception $exception) {
