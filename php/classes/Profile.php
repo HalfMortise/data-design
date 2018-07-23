@@ -162,12 +162,12 @@ class Profile {
     * @throws \TypeError when a variable is not the correct data type
     **/
 
-   public static function getProfileByProfileId(\PDO $pdo, $profileId): ?Profile {
+   public static function getProfileByProfileId(\PDO $pdo, $profileId): \SplFixedArray {
       //sanitize the profileId before searching
-      try {
-         $profileId = self::validateUuid($profileId);
-      } catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
-         throw (new \PDOException($exception->getMessage(), 0, $exception));
+      $profileId = trim($profileId);
+      $profileId = filter_var($profileId), FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+      if(empty($profileId) === true) {
+         throw(new \PDOException("profileId is invalid"));
       }
 
       //create a query template
