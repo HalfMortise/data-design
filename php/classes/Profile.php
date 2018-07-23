@@ -1,10 +1,7 @@
 <?php
 namespace HalfMortise\DataDesign;
 require_once(dirname(__DIR__, 2) . "/classes/autoload.php");
-
-
-
-
+use Ramsey\Uuid\Uuid;
 /**
  * Class identified as Profile
  *

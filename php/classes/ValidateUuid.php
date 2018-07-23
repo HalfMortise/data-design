@@ -1,19 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Joy
- * Date: 7/19/2018
- * Time: 1:53 PM
- */
-
-class ValidateUuid {
-
-}
-
-<?php
-namespace Edu\Cnm\DataDesign;
-//update autoload once instructions given
-require_once(dirname(__DIR__, 2) . "/vendor/autoload.php");
+namespace HalfMortise\DataDesign;
+require_once(dirname(__DIR__, 2) . "/classes/autoload.php");
 use Ramsey\Uuid\Uuid;
 /**
  * Trait to validate a uuid
@@ -54,7 +41,7 @@ trait ValidateUuid {
             throw(new \InvalidArgumentException("invalid uuid"));
          }
       } else if(gettype($newUuid) === "object" && get_class($newUuid) === "Ramsey\\Uuid\\Uuid") {
-         // if the misquote id is already a valid UUID, press on
+         // if the uuid is already a valid UUID, press on
          $uuid = $newUuid;
       } else {
          // throw out any other trash
