@@ -174,8 +174,37 @@ class Profile {
          }
 
          //create a query template
+         $query = "SELECT profileId, accountProfileId FROM profile WHERE profileId = :profileId";
+         $statement= $pdo->prepare($query);
 
+         //bind the profile id to the place holder in the template
+         $parameters = ["profileId" => $profileId->getBytes()];
+         $statement->execute($parameters);
+
+         //grab the profile from mySQL
+         try {
+            $profile = null;
+            $statement->setFetchMode(\PDO::FETCH_ASSOC);
+            $row = $statement->fetch();
+            if($row !== false) {
+               $profile = new Profile($row["profileId"], $row["accountProfileId"]);
+            }
+         } catch(\Exception $exception) {
+            //if the row couldn't be converted, rethrow it
+            throw(new \PDOException($exception->getMessage(), 0, $exception));
+         }
+         return($profile);
       }
+   /**
+    * Gets the profile by account
+    *
+    * @param \PDO $pdo PDO connection object
+    * @param \string $accountProfileId profile to search for
+    * @return \SplFixedArray SplFixedArray of profiles found
+    * @throws \PDOException when mySQL errors occur
+    * @throws \TypeError when variables are not the correct data type
+    */
+
 
 
 
