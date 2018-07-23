@@ -1,4 +1,5 @@
 <?php
+namespace HalfMortise\DataDesign;
 /**
  * Class identified as Content
  *
@@ -33,7 +34,7 @@ class Content {
     * @param string|Uuid $newContentId id of content entity
     * @param string|Uuid $newContentEpisode content which is broken up into episodes
     * @param string|Uuid $newContentGenre content categorized by genre
-    * @param \DateTime|string|null $newAccountDate date and time unique content was created
+    * @param \DateTime|string|null $newContentDate date and time unique content was created
     * @throws \InvalidArgumentException if data types are not valid
     * @throws \RangeException if data values are out of bounds (e.g., strings too long, negative integers)
     * @throws \TypeError if data types violate type hints
