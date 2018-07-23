@@ -220,9 +220,58 @@ class Profile {
       $query = "SELECT profileId, profileName FROM profile WHERE profileName LIKE :profileName";
       $statement = $pdo->prepare($query);
 
+      // bind the members to the template place holder
+      $profileName = "%$profileName%"; // surrounded by % on either side % means "contains"
+      $parameters = ["profileName" => $profileName];
+      $statement->execute($parameters);
 
+      //build an array of profiles
+      $profiles = new \SplFixedArray($statement->rowCount());
+      $statement->setFetchMode(\PDO::FETCH_ASSOC);
+      while(($row = $statement->fetch()) !== false) {
+         try {
+            $profile = new Genre($row["profileId"], $row["profileName"]);
+            $profiles[$profiles->key()] = $profile;
+            $profiles->next();
+         } catch(\Exception $exception) {
+
+            //if the row couldn't be converted, rethrow it
+            throw(new \PDOException($exception->getMessage(), 0, $exception));
+         }
+      }
+      return($profiles);
    }
 
+   /** Gets all profiles
+    *
+    * @param \PDO $pdo PDO connection object
+    * @return \SplFixedArray SplFixedArray of profiles found
+    * @throws \PDOException when mySQL errors occur
+    * @throws \TypeError when variables are not the correct data type
+    **/
 
+   public static function getAllProfiles(\PDO $pdo) : \SplFixedArray {
+
+      // create query template
+      $query = "SELECT profileId, profileName FROM profile";
+      $statement = $pdo->prepare($query);
+      $statement->execute();
+
+      //build an array of profiles
+      $profiles = new \SplFixedArray($statement->rowCount());
+      $statement->setFetchMode(\PDO::FETCH_ASSOC);
+      while(($row = $statement->fetch()) !== false) {
+         try {
+            $profile = new Profile($row["profileId"], $row["profileName"]);
+            $profiles[$profile->key()] = $profile;
+            $profiles->next();
+         } catch(\Exception $exception) {
+
+            //if the row couldn't be converted, rethrow it
+            throw(new \PDOException($exception->getMessage(), 0 , $exception));
+         }
+      }
+      return($profiles);
+   }
 
 }
