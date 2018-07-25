@@ -23,3 +23,7 @@ Additional assignment instructions:
 
 Use composer to generate composer.json and composer.lock
 
+NOTES FOR INSTRUCTOR:
+
+Project requirements called for development of a minimum of one Class; please see Account and Profile for completion. 
+Content and ContentProfile are still under development at the time of deadline. Thanks!
