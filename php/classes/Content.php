@@ -1,7 +1,7 @@
 <?php
 namespace Halfmortise\DataDesign;
 require_once("autoload.php"); //autoload.php file in Classes directory
-require_once(dirname(__DIR__, 2) . "../vendor/autoload.php");
+require_once(dirname(__DIR__, 2) . "./vendor/autoload.php");
 use Ramsey\Uuid\Uuid;
 /**
  * Small Cross Section of a Netflix account profile -
