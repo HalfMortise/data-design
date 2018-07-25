@@ -8,7 +8,7 @@ use Ramsey\Uuid\Uuid;
  * The tracking feature allows a user to come and go from an individual profile and content
  * while leaving content unfinished, and then returning to continue later from that same point.
  *
- * Unfinished due to project requirements specifying only one class to be developed
+ * Unfinished due to project requirements specifying only one class to be developed (see Account or Profile)
  *
  * Class identified as ContentProfile
  *

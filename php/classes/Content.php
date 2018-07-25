@@ -8,6 +8,8 @@ use Ramsey\Uuid\Uuid;
  * The tracking feature allows a user to come and go from an individual profile and content
  * while leaving content unfinished, and then returning to continue later from that same point.
  *
+ * Unfinished due to project requirements specifying only one class to be developed (see Account or Profile)
+ *
  * Class identified as Content
  *
  * @author HalfMortise
@@ -48,7 +50,7 @@ class Content {
     * @Documentation https://php.net/manual/en/language.oop5.decon.php
     **/
 
-   public function __construct($newContentId, string $newAccountName, string $newAccountEmail) {
+   public function __construct($newContentId, string $newContentEpisode, string $newContentGenre) {
       try {
          $this->setContentId($newContentId);
          $this->setContentEpisode($newContentEpisode);
@@ -105,7 +107,7 @@ class Content {
    /**
     * mutator method for content episode
     *
-    * @param String $newContentEpisode new value of content episode
+    * @param String/uuid $newContentEpisode new value of content episode
     * @throws \RangeException if $newContentEpisode is not secure
     * @throws \TypeError if $newContentEpisode is not a uuid
     **/
@@ -137,7 +139,7 @@ class Content {
    /**
     * mutator method for content genre
     *
-    * @param String $newContentGenre new value of content genre
+    * @param String/uuid $newContentGenre new value of content genre
     * @throws \RangeException if $newContentGenre is not secure
     * @throws \TypeError if $newContentGenre is not a uuid
     **/

@@ -141,7 +141,7 @@ class Account {
             $uuid = self::validateUuid($newAccountProfileId);
          } catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
             $exceptionType = get_class($exception);
-            throw(new $exceptionType($exception->getMessage(), 0, $exception));
+            throw(new $exceptionType($exception->getMessage("uuid is not valid"), 0, $exception));
          }
 
          //convert and store the account profile id
@@ -171,7 +171,7 @@ class Account {
                $uuid = self::validateUuid($newAccountActivationToken);
             } catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
                $exceptionType = get_class($exception);
-               throw(new $exceptionType($exception->getMessage(), 0, $exception));
+               throw(new $exceptionType($exception->getMessage("uuid is not valid"), 0, $exception));
             }
 
             //convert and store the account activation token
@@ -260,7 +260,7 @@ class Account {
                   $uuid = self::validateUuid($newAccountHash);
                } catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
                   $exceptionType = get_class($exception);
-                  throw(new $exceptionType($exception->getMessage(), 0, $exception));
+                  throw(new $exceptionType($exception->getMessage("uuid is not valid"), 0, $exception));
                }
 
                // convert and store the account's password hash
