@@ -1,21 +1,24 @@
 <?php
-namespace HalfMortise\DataDesign;
+namespace Halfmortise\DataDesign;
 require_once("autoload.php"); //autoload.php file in Classes directory
-require_once(dirname(__DIR__, 2) . "/vendor/autoload.php");
+require_once(dirname(__DIR__, 2) . "../vendor/autoload.php");
 use Ramsey\Uuid\Uuid;
 /**
+ * Small Cross Section of a Netflix account profile -
+ * The tracking feature allows a user to come and go from an individual profile and content
+ * while leaving content unfinished, and then returning to continue later from that same point.
+ *
  * Class identified as Account
  *
  * @author HalfMortise
- * @version 2.0
+ * @version 1.0
  **/
 class Account {
-   use ValidateDate;
    use ValidateUuid;
 
 
    /**
-    * id for account; this is the primary key
+    * id for account; this is the primary key for the class
     * @var Uuid $accountId
     **/
    private $accountId;

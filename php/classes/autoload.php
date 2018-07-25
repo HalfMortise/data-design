@@ -19,7 +19,7 @@ spl_autoload_register(function($class) {
     * prefix: the prefix for all the classes (i.e., the namespace)
     * baseDir: the base directory for all classes (default = current directory)
     **/
-   $prefix = "HalfMortise\\DataDesign";
+   $prefix = "Halfmortise\\DataDesign";
 
 //this means: you are here
    $baseDir = __DIR__;
