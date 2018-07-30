@@ -38,13 +38,10 @@
 				<li>Many profiles can track limitless content (m-to-n)</li>
 			</ul>
 		</div>
-		<div>
-			<h3>ERD</h3>
-			<img src="./images/graph1.png" alt="ERD" />
-		</div>
+	<h3>ERD</h3>
+		<a href="https://bootcamp-coders.cnm.edu/~ecorsi/data-design/epic/images/graph1.png" target="_blank"><img class="img" src="./images/graph1.png" alt="" /></a>
 		<div class="fixed-footer">
 			<div class="container"><a href="./index.php">Home</a></div>
 		</div>
-
 	</body>
 </html>
